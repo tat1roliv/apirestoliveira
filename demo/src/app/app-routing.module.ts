@@ -15,7 +15,7 @@ const routes: Routes = [
     {path: 'add', component: StudentsAddComponent},
     {path: 'edit', component: StudentsEditarComponent},
   ]},
-  
+
   {path: 'login' , component: FormStudentComponent},
   {path: 'home' , component: HomeComponent},
   {path: '' , redirectTo: 'home', pathMatch: 'full'},
