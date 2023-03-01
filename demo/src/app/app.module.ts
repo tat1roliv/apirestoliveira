@@ -17,6 +17,8 @@ import { HomeComponent } from './core/home/home.component';
 import { StudentsAddComponent } from './students/components/students-add/students-add.component';
 import { StudentsTempComponent } from './students/components/students-temp/students-temp.component';
 import { StudentsEditarComponent } from './students/components/students-editar/students-editar.component';
+import { CourseModule } from './course/course.module';
+import { LessonModule } from './lesson/lesson.module';
 //import { StudentsModule } from './students/students.module';
 
 @NgModule({
@@ -33,7 +35,6 @@ import { StudentsEditarComponent } from './students/components/students-editar/s
         HomeComponent,
         StudentsAddComponent,
         StudentsEditarComponent,
-        //StudentsModule
     ],
     providers: [],
     bootstrap: [AppComponent],
@@ -45,6 +46,10 @@ import { StudentsEditarComponent } from './students/components/students-editar/s
         FormsModule,
         MaterialModule,
         HttpClientModule,
+        CourseModule,
+        LessonModule,
+        //StudentsModule
+
     ]
 })
 export class AppModule { }

@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { CoursesListComponent } from './components/courses-list/courses-list.component';
 import { CoursesAddComponent } from './components/courses-add/courses-add.component';
 import { CoursesEditComponent } from './components/courses-edit/courses-edit.component';
+import { MaterialModule } from '../material.module';
+import { CourseRoutingModule } from './course-routing.module';
 
 
 
@@ -13,7 +15,13 @@ import { CoursesEditComponent } from './components/courses-edit/courses-edit.com
     CoursesEditComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    CourseRoutingModule,
+    MaterialModule,
+  ],
+  exports: [
+    CourseRoutingModule,
+    MaterialModule
   ]
 })
 export class CourseModule { }

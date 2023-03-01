@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
+import { StudentsRoutingModule } from './students-routing.module';
 import { StudentsAddComponent } from './components/students-add/students-add.component';
 import { StudentsTempComponent } from './components/students-temp/students-temp.component';
 import { StudentsEditarComponent } from './components/students-editar/students-editar.component';
@@ -19,10 +21,20 @@ import { MatInputModule } from '@angular/material/input';
   ],
   imports: [
     CommonModule,
+    StudentsRoutingModule,
     MaterialModule,
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
+
+  ],
+  exports: [
+    MaterialModule,
+    StudentsRoutingModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+
   ],
   providers: [
     StudentsService

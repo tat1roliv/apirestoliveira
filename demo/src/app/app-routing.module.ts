@@ -9,11 +9,13 @@ import { StudentsAddComponent } from './students/components/students-add/student
 import { StudentsEditarComponent } from './students/components/students-editar/students-editar.component';
 
 const routes: Routes = [
+
   {path: 'students' , children: [
     {path: 'list', component: StudentsTempComponent},
     {path: 'add', component: StudentsAddComponent},
     {path: 'edit', component: StudentsEditarComponent},
   ]},
+  
   {path: 'login' , component: FormStudentComponent},
   {path: 'home' , component: HomeComponent},
   {path: '' , redirectTo: 'home', pathMatch: 'full'},
