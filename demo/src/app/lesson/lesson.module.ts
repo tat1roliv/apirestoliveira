@@ -5,6 +5,10 @@ import { LessonsAddComponent } from './components/lessons-add/lessons-add.compon
 import { LessonsEditComponent } from './components/lessons-edit/lessons-edit.component';
 import { MaterialModule } from '../material.module';
 import { LessonRoutingModule } from '../lesson/lesson-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { LessonService } from './services/lesson.service';
 
 
 
@@ -17,11 +21,20 @@ import { LessonRoutingModule } from '../lesson/lesson-routing.module';
   imports: [
     CommonModule,
     LessonRoutingModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   exports: [
     LessonRoutingModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+  ],
+  providers: [
+    LessonService
   ]
 })
 export class LessonModule { }

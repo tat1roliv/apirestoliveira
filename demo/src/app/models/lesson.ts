@@ -1,7 +1,7 @@
-import { Course } from './course';
+//import { Course } from './course';
 export interface Lesson {
+  id_: string;
   title: string;
   lessonNumber: string;
-  course: Course;
-
+  course: string;
 }

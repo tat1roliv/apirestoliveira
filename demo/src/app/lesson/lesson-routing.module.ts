@@ -4,10 +4,8 @@ import { LessonsListComponent } from './components/lessons-list/lessons-list.com
 import { LessonsAddComponent } from './components/lessons-add/lessons-add.component';
 import { LessonsEditComponent } from './components/lessons-edit/lessons-edit.component';
 
-
-
-
 const routes: Routes = [
+  
   {path: 'lessons' , children: [
     {path: 'list', component: LessonsListComponent},
     {path: 'add', component: LessonsAddComponent},

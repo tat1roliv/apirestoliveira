@@ -8,9 +8,13 @@ import { StudentsTempComponent } from './students/components/students-temp/stude
 import { StudentsAddComponent } from './students/components/students-add/students-add.component';
 import { StudentsEditarComponent } from './students/components/students-editar/students-editar.component';
 
-import { CoursesListComponent } from './course/components/courses-list/courses-list.component';
-import { CoursesAddComponent } from './course/components/courses-add/courses-add.component';
-import { CoursesEditComponent } from './course/components/courses-edit/courses-edit.component';
+//import { CoursesListComponent } from './course/components/courses-list/courses-list.component';
+//import { CoursesAddComponent } from './course/components/courses-add/courses-add.component';
+//import { CoursesEditComponent } from './course/components/courses-edit/courses-edit.component';
+
+//import { LessonsListComponent } from './lesson/components/lessons-list/lessons-list.component';//
+//import { LessonsAddComponent } from './lesson/components/lessons-add/lessons-add.component';//
+//import { LessonsEditComponent } from './lesson/components/lessons-edit/lessons-edit.component';//
 
 const routes: Routes = [
 
@@ -20,12 +24,20 @@ const routes: Routes = [
     {path: 'edit', component: StudentsEditarComponent},
   ]},
 
+  /*
   {path: 'courses' , children: [
     {path: 'list', component: CoursesListComponent},
     {path: 'add', component: CoursesAddComponent},
     {path: 'edit', component: CoursesEditComponent},
   ]},
 
+
+  {path: 'lessons' , children: [
+    {path: 'list', component: LessonsListComponent},
+    {path: 'add', component: LessonsAddComponent},
+    {path: 'edit', component: LessonsEditComponent},
+  ]},
+*/
   {path: 'login' , component: FormStudentComponent},
   {path: 'home' , component: HomeComponent},
   {path: '' , redirectTo: 'home', pathMatch: 'full'},

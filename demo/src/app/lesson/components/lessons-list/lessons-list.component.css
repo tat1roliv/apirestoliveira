@@ -1,0 +1,5 @@
+.btn.btn-edit{
+  background-color: var(--color-contrast);
+  color:#fff;
+  opacity:.7;
+}
