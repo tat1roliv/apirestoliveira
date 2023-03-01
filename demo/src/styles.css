@@ -1,0 +1,43 @@
+html, body { height: 100%; }
+//body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/*-------------------------------------- GLOBAL STYLES */
+
+:root{
+  --font-primary: 'Roboto', 'Helvetica Neue', sans-serif;
+  --color-primary: #fff;
+  --color-altprimary: #f5f5f5;
+  --color-secundary: #023267;
+  --color-altsecundary: #0083B0;
+  --color-action: #00B4DB;
+  --color-font: #353535;
+  --color-contrast: #ff0157;
+  --color-midgray:#4b4b4b;
+  --color-lightgray: #ddd;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    //list-style: none;
+    box-sizing: border-box;
+    font-family: var(--font-primary);
+    //color:var(--color-font);
+}
+
+html{
+    scroll-behavior: smooth;
+ }
+
+
+a{
+    text-decoration:none;
+}
+
+h2{
+  font-size: 36px;
+  line-height: 46px;
+  font-weight:bold;
+  color:var(--color-secundary);
+}

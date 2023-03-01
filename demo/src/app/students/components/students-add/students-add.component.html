@@ -1,0 +1,29 @@
+<h2 appTitleSize >Add Student</h2>
+
+<form [formGroup]="formStudents" (ngSubmit)="studentsAdd()">
+
+    <div class="mb-2">
+        <label class="mb-1" for="disabledTextInput">Id: </label>
+        <input value="" type="text"  id="disabledTextInput" name="firstname-input" class="form-control" formControlName="id_">
+    </div>
+    <div class="mb-2">
+      <label class="mb-1" for="name-input">Name:</label>
+      <input value="" type="text" id="name-input" name="name-input" class="form-control"  formControlName="name">
+    </div>
+    <div class="mb-2">
+      <label class="mb-1" for="lastName-input">Last Name:</label>
+      <input value="" type="text" id="lastName-input" name="lastName-input" class="form-control"  formControlName="lastName">
+    </div>
+    <div class="mb-2">
+      <label class="mb-1" for="email-input">E-mail:</label>
+      <input value="" type="text" id="email-input" name="email-input" class="form-control"  formControlName="email">
+    </div>
+    <div class="mb-2">
+      <label class="mb-1" for="course-input">Course:</label>
+      <input value="" type="text" id="course-input" name="course-input" class="form-control"  formControlName="course">
+    </div>
+    <div class="mt-4 mb-2">
+        <button type="submit" class="btn btn-primary px-5">Add</button>
+    </div>
+
+</form>

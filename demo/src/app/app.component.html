@@ -1,0 +1,30 @@
+<app-toolbar></app-toolbar>
+  <section class="bg-light-edit d-flex justify-content-center full-fold">
+    <div class="container">
+      <div class="row align-items-start justify-content-center">
+        <div class="col-12 col-md-3 my-5 mx-4 d-flex flex-column align-items-start bg-light navbar-content">
+          <ul class="nav flex-column menu-edit">
+            <li class="nav-item ">
+              <a class="nav-link" (click)="redigirInicio()">Home</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" routerLink="login">Login</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" routerLink="students/list">Students List</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " routerLink="students/add">Add Student</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-12 col-md-8 offset-1 my-5 mx-auto">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+</section>
+<app-footer></app-footer>
+
+
+

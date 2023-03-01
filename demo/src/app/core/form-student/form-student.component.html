@@ -1,0 +1,39 @@
+
+<div class="row align-items-center justify-content-center">
+  <div class="col-12 col-md-10">
+    <div class="ic-dynamic-form-container px-4">
+        <h3 class="ic-form-title">Join us!</h3>
+
+        <form class="ic-dynamic-form"  [formGroup]="formSubscription" (ngSubmit)="handleSubscription()">
+          <div class="mb-2">
+              <label class="mb-1" for="firstname-input">Name:</label>
+              <input value="" type="text" id="firstname-input" name="firstname-input" class="form-control" placeholder="*Name" formControlName="name_">
+              <!--check-->
+              <div class="valid" *ngIf="formSubscription.controls['name_'].dirty && formSubscription.controls['name_'].valid" >accepted</div>
+              <div class="invalid" *ngIf="formSubscription.controls['name_'].dirty && formSubscription.controls['name_'].errors?.['required']" >required field</div>
+              <div class="invalid" *ngIf="formSubscription.controls['name_'].dirty && formSubscription.controls['name_'].errors?.['minlength']">insert more characters (min.2) </div>
+          </div>
+          <div class="mb-2">
+            <label class="mb-1" for="lastname-input">Last name:</label>
+            <input value="" type="text" id="lastname-input" name="lastname-input" class="form-control" placeholder="*Last name" formControlName="lastName_">
+            <!--check-->
+            <div class="valid" *ngIf="formSubscription.controls['lastName_'].dirty && formSubscription.controls['lastName_'].valid" >accepted</div>
+            <div class="invalid" *ngIf="formSubscription.controls['lastName_'].dirty && formSubscription.controls['lastName_'].errors?.['required']" >required field</div>
+            <div class="invalid" *ngIf="formSubscription.controls['lastName_'].dirty && formSubscription.controls['lastName_'].errors?.['minlength']">insert more characters (min.3) </div>
+          </div>
+          <div class="mb-2">
+              <label class="mb-1" for="email-input">Email:</label>
+              <input value="" type="text" id="email-input" name="email-input" class="form-control" placeholder="*Email" formControlName="email_">
+              <!--check-->
+              <div class="valid" *ngIf="formSubscription.controls['email_'].dirty && formSubscription.controls['email_'].valid" >accepted</div>
+              <div class="invalid" *ngIf="formSubscription.controls['email_'].dirty && formSubscription.controls['email_'].errors?.['required']" >required field</div>
+              <div class="invalid" *ngIf="formSubscription.controls['email_'].dirty && formSubscription.controls['email_'].errors?.['email']">invalid e-mail</div>
+          </div>
+          <div class="mt-4 mb-2">
+              <button type="submit" class="btn px-4" [disabled]="formSubscription.invalid">Send</button>
+          </div>
+        </form>
+
+    </div>
+  </div>
+</div>

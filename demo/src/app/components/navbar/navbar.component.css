@@ -1,0 +1,4 @@
+.menu-edit .nav-link.active{
+  color:var(--color-secundary);
+  font-weight:bold;
+}

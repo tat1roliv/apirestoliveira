@@ -1,0 +1,37 @@
+[
+  {
+    "id_": "1",
+    "name": "Ada",
+    "lastName": "Lovelace",
+    "email": "ada@test.com",
+    "course": "Angular"
+  },
+  {
+    "id_": "2",
+    "name": "Alan",
+    "lastName": "Turing",
+    "email": "alan@test.com",
+    "course": "C"
+  },
+  {
+    "id_": "3",
+    "name": "Robert",
+    "lastName": "Martin",
+    "email": "uncle@test.com",
+    "course": "Java"
+  },
+  {
+    "id_": "4",
+    "name": "Grace",
+    "lastName": "Hooper",
+    "email": "hooper@test.com",
+    "course": "Cobol"
+  },
+  {
+    "id_": "5",
+    "name": "Tim",
+    "lastName": "Berners-Lee",
+    "email": "tim@test.com",
+    "course": "Angular"
+  }
+]
