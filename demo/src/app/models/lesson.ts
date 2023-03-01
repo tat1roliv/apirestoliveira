@@ -1,5 +1,7 @@
-export interface Lesson{
+import { Course } from './course';
+export interface Lesson {
   title: string;
-  lessonNumber: number;
-  course: string;
+  lessonNumber: string;
+  course: Course;
+
 }
