@@ -5,6 +5,10 @@ import { CoursesAddComponent } from './components/courses-add/courses-add.compon
 import { CoursesEditComponent } from './components/courses-edit/courses-edit.component';
 import { MaterialModule } from '../material.module';
 import { CourseRoutingModule } from './course-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { CourseService } from './services/course.service';
 
 
 
@@ -18,10 +22,19 @@ import { CourseRoutingModule } from './course-routing.module';
     CommonModule,
     CourseRoutingModule,
     MaterialModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   exports: [
     CourseRoutingModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+  ],
+  providers: [
+    CourseService
   ]
 })
 export class CourseModule { }

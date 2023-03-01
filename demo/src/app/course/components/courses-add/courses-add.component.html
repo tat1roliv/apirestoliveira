@@ -1,1 +1,17 @@
-<p>courses-add works!</p>
+<h2>Add Course</h2>
+
+<form [formGroup]="formCourses" (ngSubmit)="coursesAdd()">
+
+    <div class="mb-2">
+        <label class="mb-1" for="disabledTextInput">Id: </label>
+        <input value="" type="text"  id="disabledTextInput" name="id-name" class="form-control" formControlName="id_">
+    </div>
+    <div class="mb-2">
+      <label class="mb-1" for="courseName-input">Name:</label>
+      <input value="" type="text" id="courseName-input" name="courseName-input" class="form-control"  formControlName="courseName">
+    </div>
+    <div class="mt-4 mb-2">
+        <button type="submit" class="btn btn-primary px-5">Add</button>
+    </div>
+
+</form>

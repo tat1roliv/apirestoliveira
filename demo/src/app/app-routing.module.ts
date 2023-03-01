@@ -8,12 +8,22 @@ import { StudentsTempComponent } from './students/components/students-temp/stude
 import { StudentsAddComponent } from './students/components/students-add/students-add.component';
 import { StudentsEditarComponent } from './students/components/students-editar/students-editar.component';
 
+import { CoursesListComponent } from './course/components/courses-list/courses-list.component';
+import { CoursesAddComponent } from './course/components/courses-add/courses-add.component';
+import { CoursesEditComponent } from './course/components/courses-edit/courses-edit.component';
+
 const routes: Routes = [
 
   {path: 'students' , children: [
     {path: 'list', component: StudentsTempComponent},
     {path: 'add', component: StudentsAddComponent},
     {path: 'edit', component: StudentsEditarComponent},
+  ]},
+
+  {path: 'courses' , children: [
+    {path: 'list', component: CoursesListComponent},
+    {path: 'add', component: CoursesAddComponent},
+    {path: 'edit', component: CoursesEditComponent},
   ]},
 
   {path: 'login' , component: FormStudentComponent},
