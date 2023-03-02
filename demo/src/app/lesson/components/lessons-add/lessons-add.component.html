@@ -1,1 +1,26 @@
-<p>lessons-add works!</p>
+<h2>Add Lesson</h2>
+
+<form [formGroup]="formLessons" (ngSubmit)="lessonsAdd()">
+
+    <div class="mb-2">
+        <label class="mb-1" for="disabledTextInput">Id: </label>
+        <input value="" type="text"  id="disabledTextInput" name="id_" class="form-control" formControlName="id_">
+    </div>
+    <div class="mb-2">
+      <label class="mb-1" for="title-input">Title:</label>
+      <input value="" type="text" id="title-input" name="title-input" class="form-control"  formControlName="title">
+    </div>
+    <div class="mb-2">
+      <label class="mb-1" for="lessonNumber-input">Lesson Number:</label>
+      <input value="" type="text" id="lessonNumber-input" name="lessonNumber-input" class="form-control"  formControlName="lessonNumber">
+    </div>
+    <div class="mb-2">
+      <label class="mb-1" for="course-input">Course:</label>
+      <input value="" type="text" id="course-input" name="course-input" class="form-control"  formControlName="course">
+    </div>
+    <div class="mt-4 mb-2">
+        <button type="submit" class="btn btn-primary px-5">Add</button>
+    </div>
+
+</form>
+

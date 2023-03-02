@@ -12,9 +12,9 @@ import { StudentsEditarComponent } from './students/components/students-editar/s
 //import { CoursesAddComponent } from './course/components/courses-add/courses-add.component';
 //import { CoursesEditComponent } from './course/components/courses-edit/courses-edit.component';
 
-//import { LessonsListComponent } from './lesson/components/lessons-list/lessons-list.component';//
-//import { LessonsAddComponent } from './lesson/components/lessons-add/lessons-add.component';//
-//import { LessonsEditComponent } from './lesson/components/lessons-edit/lessons-edit.component';//
+import { LessonsListComponent } from './lesson/components/lessons-list/lessons-list.component';//
+import { LessonsAddComponent } from './lesson/components/lessons-add/lessons-add.component';//
+import { LessonsEditComponent } from './lesson/components/lessons-edit/lessons-edit.component';//
 
 const routes: Routes = [
 
@@ -30,7 +30,6 @@ const routes: Routes = [
     {path: 'add', component: CoursesAddComponent},
     {path: 'edit', component: CoursesEditComponent},
   ]},
-
 
   {path: 'lessons' , children: [
     {path: 'list', component: LessonsListComponent},
