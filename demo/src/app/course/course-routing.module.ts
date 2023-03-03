@@ -8,11 +8,10 @@ import { CoursesEditComponent } from './components/courses-edit/courses-edit.com
 
 const routes: Routes = [
 
-  {path: 'courses' , children: [
     {path: 'list', component: CoursesListComponent},
     {path: 'add', component: CoursesAddComponent},
     {path: 'edit', component: CoursesEditComponent},
-  ]},
+
 
 ];
 

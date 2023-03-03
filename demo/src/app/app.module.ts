@@ -14,10 +14,10 @@ import { StudentNamePipe } from './pipes/student-name.pipe';
 import { TitleSizeDirective } from './directives/title-size.directive';
 import { NotFoundComponent } from './core/not-found/not-found.component';
 import { HomeComponent } from './core/home/home.component';
-//import { StudentsModule } from './students/students.module';
-import { StudentsAddComponent } from './students/components/students-add/students-add.component';
-import { StudentsTempComponent } from './students/components/students-temp/students-temp.component';
-import { StudentsEditarComponent } from './students/components/students-editar/students-editar.component';
+import { StudentsModule } from './students/students.module';
+//import { StudentsAddComponent } from './students/components/students-add/students-add.component';
+//import { StudentsTempComponent } from './students/components/students-temp/students-temp.component';
+//import { StudentsEditarComponent } from './students/components/students-editar/students-editar.component';
 import { CourseModule } from './course/course.module';
 import { LessonModule } from './lesson/lesson.module';
 
@@ -30,9 +30,9 @@ import { LessonModule } from './lesson/lesson.module';
         FormStudentComponent,
         StudentNamePipe,
         TitleSizeDirective,
-        StudentsTempComponent,//
-        StudentsAddComponent,//
-        StudentsEditarComponent,//
+       // StudentsTempComponent,//
+        //StudentsAddComponent,//
+        //StudentsEditarComponent,//
         NotFoundComponent,
         HomeComponent,
     ],
