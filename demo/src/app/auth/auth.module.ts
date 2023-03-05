@@ -4,7 +4,7 @@ import { AuthHomeComponent } from './components/auth-home/auth-home.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthRoutingModule } from './auth-routing.module';
 import { RouterModule, Routes } from '@angular/router';
-//import  { SharedModule } from '../shared/shared.module';
+import  { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -15,7 +15,7 @@ import { RouterModule, Routes } from '@angular/router';
   imports: [
     CommonModule,
     AuthRoutingModule,
-   // SharedModule
+    SharedModule
   ]
 })
 export class AuthModule { }

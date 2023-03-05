@@ -1,0 +1,53 @@
+
+.ic-dynamic-form-container{
+  -moz-box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+  -webkit-box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+  background-color: #fff;
+}
+
+.ic-form-title {
+  border-radius: 8px 8px 0 0;
+}
+
+h3.ic-form-title{
+  font-size: 15px;
+  line-height: 22px;
+  font-weight: 700;
+  text-align: center;
+  padding: 30px 20px 22px 20px;
+  margin: 0;
+  color: #023267;
+  background-color: #fff;
+  border-bottom: 2px solid tomato;
+}
+
+.ic-dynamic-form{
+  background-color: #fff;
+  padding: 22px 8px 20px 8px!important;
+  border-radius: 0 0 8px 8px;
+}
+
+.btn {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: none;
+  border-radius: 8px;
+  padding: 15px 24px;
+  letter-spacing: 0.5px;
+  width: 100%;
+  background-color:#3366FF;
+  border:none;
+  color:#fff;
+}
+
+.valid {
+  color:#707070;
+}
+
+.invalid{
+  color:tomato;
+}
+
