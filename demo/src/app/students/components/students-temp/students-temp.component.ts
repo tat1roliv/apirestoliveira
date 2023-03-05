@@ -33,7 +33,10 @@ export class StudentsTempComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.studentsTemp$ = this.studentsService. getStudentsObservable();
     this.session.getSession().subscribe((session: Session) => {
-      console.log('sessao student', session)
+      console.log('sessao student', session);
+      if(!session.sessionActive){
+        this.router.navigate(['/auth/login']);
+      }
     })
   }
 
