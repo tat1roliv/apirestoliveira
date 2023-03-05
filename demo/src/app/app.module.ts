@@ -46,9 +46,9 @@ import { LessonModule } from './lesson/lesson.module';
         FormsModule,
         MaterialModule,
         HttpClientModule,
-        StudentsModule,
-        CourseModule,
-        LessonModule,
+        //StudentsModule,
+        //CourseModule,
+        //LessonModule,
 
     ]
 })
