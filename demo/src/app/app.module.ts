@@ -10,7 +10,7 @@ import { FormStudentComponent } from './core/form-student/form-student.component
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { MaterialModule } from './material.module';
-import { StudentNamePipe } from './pipes/student-name.pipe';
+//import { StudentNamePipe } from './pipes/student-name.pipe';
 import { TitleSizeDirective } from './directives/title-size.directive';
 import { NotFoundComponent } from './core/not-found/not-found.component';
 import { HomeComponent } from './core/home/home.component';
@@ -28,7 +28,7 @@ import { LessonModule } from './lesson/lesson.module';
         NavbarComponent,
         FooterComponent,
         FormStudentComponent,
-        StudentNamePipe,
+       // StudentNamePipe,
         TitleSizeDirective,
        // StudentsTempComponent,//
         //StudentsAddComponent,//
@@ -46,7 +46,7 @@ import { LessonModule } from './lesson/lesson.module';
         FormsModule,
         MaterialModule,
         HttpClientModule,
-        //StudentsModule,
+        StudentsModule,
         CourseModule,
         LessonModule,
 
