@@ -14,14 +14,6 @@
               <div class="invalid" *ngIf="formLogin.controls['name_'].dirty && formLogin.controls['name_'].errors?.['minlength']">insert more characters (min.2) </div>
           </div>
           <div class="mb-2">
-            <label class="mb-1" for="lastname-input">Last name:</label>
-            <input value="" type="text" id="lastname-input" name="lastname-input" class="form-control" placeholder="*Last name" formControlName="lastName_">
-            <!--check-->
-            <div class="valid" *ngIf="formLogin.controls['lastName_'].dirty && formLogin.controls['lastName_'].valid" >accepted</div>
-            <div class="invalid" *ngIf="formLogin.controls['lastName_'].dirty && formLogin.controls['lastName_'].errors?.['required']" >required field</div>
-            <div class="invalid" *ngIf="formLogin.controls['lastName_'].dirty && formLogin.controls['lastName_'].errors?.['minlength']">insert more characters (min.3) </div>
-          </div>
-          <div class="mb-2">
               <label class="mb-1" for="email-input">Email:</label>
               <input value="" type="text" id="email-input" name="email-input" class="form-control" placeholder="*Email" formControlName="email_">
               <!--check-->
@@ -30,7 +22,10 @@
               <div class="invalid" *ngIf="formLogin.controls['email_'].dirty && formLogin.controls['email_'].errors?.['email']">invalid e-mail</div>
           </div>
           <div class="mt-4 mb-2">
-              <button type="submit" class="btn px-4" [disabled]="formLogin.invalid">Send</button>
+            <mat-slide-toggle>Admin</mat-slide-toggle>
+          </div>
+          <div class="mt-4 mb-2">
+              <button type="submit" class="btn px-4" [disabled]="formLogin.invalid">Login</button>
           </div>
         </form>
 
