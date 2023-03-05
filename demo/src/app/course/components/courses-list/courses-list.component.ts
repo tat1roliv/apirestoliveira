@@ -1,7 +1,9 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
+import { SessionService } from 'src/app/core/services/session.service';
 import { Course } from 'src/app/models/course';
+import { Session } from 'src/app/models/session';
 import { CourseService } from '../../services/course.service';
 
 @Component({
@@ -18,12 +20,16 @@ export class CoursesListComponent implements OnInit, OnDestroy {
 
    constructor(
      public coursesService: CourseService,
-     private router: Router
+     private router: Router,
+     private session: SessionService,
      ) {
    }
 
    ngOnInit() {
      this.coursesList$ = this.coursesService.getCoursesObservable();
+     this.session.getSession().subscribe((session: Session) => {
+      console.log('sessao course', session)
+    })
    }
 
    removeCourse(course: Course): void {
