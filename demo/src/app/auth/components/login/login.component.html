@@ -1,17 +1,17 @@
 
-<div class="row align-items-center justify-content-center">
+<div class="row align-items-start justify-content-start mb-3">
   <div class="col-12 col-md-10">
     <div class="ic-dynamic-form-container px-4">
         <h3 class="ic-form-title">Join us!</h3>
 
-        <form class="ic-dynamic-form"  [formGroup]="formLogin"><!--[formGroup]="formLogin" -->
+        <form class="ic-dynamic-form"  [formGroup]="formLogin" (ngSubmit)="login()"><!--[formGroup]="formLogin" -->
           <div class="mb-2">
-              <label class="mb-1" for="firstname-input">Name:</label>
-              <input value="" type="text" id="firstname-input" name="firstname-input" class="form-control" placeholder="*Name" formControlName="name_">
+              <label class="mb-1" for="username-input">UserName:</label>
+              <input value="" type="text" id="username-input" name="username-input" class="form-control" placeholder="*User name" formControlName="userName_">
               <!--check-->
-              <div class="valid" *ngIf="formLogin.controls['name_'].dirty && formLogin.controls['name_'].valid" >accepted</div>
-              <div class="invalid" *ngIf="formLogin.controls['name_'].dirty && formLogin.controls['name_'].errors?.['required']" >required field</div>
-              <div class="invalid" *ngIf="formLogin.controls['name_'].dirty && formLogin.controls['name_'].errors?.['minlength']">insert more characters (min.2) </div>
+              <div class="valid" *ngIf="formLogin.controls['userName_'].dirty && formLogin.controls['userName_'].valid" >accepted</div>
+              <div class="invalid" *ngIf="formLogin.controls['userName_'].dirty && formLogin.controls['userName_'].errors?.['required']" >required field</div>
+              <div class="invalid" *ngIf="formLogin.controls['userName_'].dirty && formLogin.controls['userName_'].errors?.['minlength']">insert more characters (min.2) </div>
           </div>
           <div class="mb-2">
               <label class="mb-1" for="email-input">Email:</label>
@@ -21,8 +21,16 @@
               <div class="invalid" *ngIf="formLogin.controls['email_'].dirty && formLogin.controls['email_'].errors?.['required']" >required field</div>
               <div class="invalid" *ngIf="formLogin.controls['email_'].dirty && formLogin.controls['email_'].errors?.['email']">invalid e-mail</div>
           </div>
+          <div class="mb-2">
+            <label class="mb-1" for="password-input">Password:</label>
+            <input value="" type="text" id="password-input" name="password-input" class="form-control" placeholder="*Password" formControlName="password_">
+            <!--check-->
+            <div class="valid" *ngIf="formLogin.controls['password_'].dirty && formLogin.controls['password_'].valid" >accepted</div>
+            <div class="invalid" *ngIf="formLogin.controls['password_'].dirty && formLogin.controls['password_'].errors?.['required']" >required field</div>
+            <div class="invalid" *ngIf="formLogin.controls['password_'].dirty && formLogin.controls['password_'].errors?.['minlength']">insert more characters (min.5) </div>
+        </div>
           <div class="mt-4 mb-2">
-            <mat-slide-toggle>Admin</mat-slide-toggle>
+            <mat-slide-toggle formControlName="isAdmin_">Admin</mat-slide-toggle>
           </div>
           <div class="mt-4 mb-2">
               <button type="submit" class="btn px-4" [disabled]="formLogin.invalid">Login</button>

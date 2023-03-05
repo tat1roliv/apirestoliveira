@@ -6,6 +6,8 @@ import { Student } from '../../../models/student';
 import { Input, Output , EventEmitter } from '@angular/core';
 
 import { StudentsService } from '../../services/students.service';
+import { SessionService } from 'src/app/core/services/session.service';
+import { Session } from 'src/app/models/session';
 
 @Component({
   selector: 'app-students-temp',
@@ -22,12 +24,17 @@ export class StudentsTempComponent implements OnInit, OnDestroy {
 
   constructor(
     public studentsService: StudentsService,
-    private router: Router
+    private router: Router,
+    private session: SessionService,
+
     ) {
   }
 
   ngOnInit() {
     this.studentsTemp$ = this.studentsService. getStudentsObservable();
+    this.session.getSession().subscribe((session: Session) => {
+      console.log('estado da sessao', session)
+    })
   }
 
   removeStudent(student: Student): void {
