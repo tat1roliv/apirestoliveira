@@ -6,6 +6,28 @@ import { Student } from 'src/app/models/student';
   providedIn: 'root'
 })
 export class StudentsService {
+/*
+  constructor() {
+
+  }
+
+
+  getStudentsObservable(): Observable<Student[]>{
+
+  }
+
+  addStudent(student: Student): void{
+
+  }
+
+  editServStudent(student: Student): void {
+
+  }
+
+  removeStudent(student: Student): void {
+
+  }
+*/
 
   public students: Student[] = [
   {
