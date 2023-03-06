@@ -2,38 +2,40 @@
   <section class="bg-light-edit d-flex justify-content-center full-fold">
     <div class="container">
       <div class="row align-items-start justify-content-center">
-        <div class="col-12 col-md-3 my-5 mx-4 d-flex flex-column align-items-start bg-light navbar-content">
-          <ul class="nav flex-column menu-edit">
+        <ng-container *ngIf="session$ | async as session">
+        <div class="col-12 col-md-2 my-5 d-flex flex-column align-items-start bg-light navbar-content" *ngIf="session.userActive">
+          <ul class="nav flex-column menu-edit" >
             <li class="nav-item ">
               <a class="nav-link" (click)="redigirInicio()"><strong>Home</strong></a>
             </li>
             <li class="nav-item ">
-              <a class="nav-link" routerLink="auth"><strong>Auth</strong></a>
-            </li>
-            <li class="nav-item ">
-              <a class="nav-link" routerLink="login"><strong>Login</strong></a>
+              <a class="nav-link" routerLink="auth"><strong>Login</strong></a>
             </li>
             <li class="nav-item ">
               <a class="nav-link" routerLink="students/list"><strong>Students</strong></a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" *ngIf="session.userActive?.isAdmin_">
               <a class="nav-link " routerLink="students/add"><em>Add Student</em></a>
             </li>
             <li class="nav-item ">
               <a class="nav-link" routerLink="courses/list"><strong>Courses</strong></a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" *ngIf="session.userActive?.isAdmin_">
               <a class="nav-link " routerLink="courses/add"><em>Add Course</em></a>
             </li>
             <li class="nav-item ">
               <a class="nav-link" routerLink="lessons/list"><strong>Lessons</strong></a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item " *ngIf="session.userActive?.isAdmin_">
               <a class="nav-link " routerLink="lessons/add"><em>Add Lesson</em></a>
+            </li>
+            <li class="nav-item ">
+              <strong><a class="nav-link" (click)="logout()">Logout</a></strong>
             </li>
           </ul>
         </div>
-        <div class="col-12 col-md-8 offset-1 my-5 mx-auto">
+      </ng-container>
+        <div class="col-12 col-md-9 offset-1 my-5 mx-auto">
           <router-outlet></router-outlet>
         </div>
       </div>

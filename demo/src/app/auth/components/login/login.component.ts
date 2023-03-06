@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
       userName_: this.formLogin.value.userName_,
       email_: this.formLogin.value.email_,
       password_: this.formLogin.value.password_,
-      isAdmin_: this.formLogin.value.isAdmin,
+      isAdmin_: this.formLogin.value.isAdmin_,
     }
     this.loginService.login(user)
     this.router.navigate(['home'])

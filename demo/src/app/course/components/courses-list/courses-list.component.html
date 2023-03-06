@@ -8,8 +8,10 @@
         <p class="card-text"><strong>Name:</strong> {{ course.courseName  }} </p>
       </div>
       <div class="row mt-3 justify-content-end">
-        <button  class="col-2 btn btn-primary" (click)="editCourseRedirect(course)">Edit</button>
-        <button  class="col-2 btn btn-edit offset-1" (click)="removeCourse(course)">Remove</button>
+        <ng-container *ngIf="session$ | async as session">
+          <button  class="col-2 btn btn-primary" (click)="editCourseRedirect(course)" *ngIf="session.userActive?.isAdmin_">Edit</button>
+          <button  class="col-2 btn btn-edit offset-1" (click)="removeCourse(course)" *ngIf="session.userActive?.isAdmin_">Remove</button>
+        </ng-container>
       </div>
     </div>
   </li>

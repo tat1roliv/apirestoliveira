@@ -21,6 +21,7 @@ export class StudentsTempComponent implements OnInit, OnDestroy {
 
  studentsTemp$!: Observable<Student[]>;
  suscripcion!: Subscription;
+ session$!: Observable<Session>
 
   constructor(
     public studentsService: StudentsService,
@@ -32,7 +33,7 @@ export class StudentsTempComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.studentsTemp$ = this.studentsService. getStudentsObservable();
-
+    this.session$ = this.session.getSession()
     /*
     this.session.getSession().subscribe((session: Session) => {
       console.log('sessao student', session);

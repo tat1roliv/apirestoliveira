@@ -17,6 +17,7 @@ export class LessonsListComponent implements OnInit, OnDestroy {
 
   lessonsList$!: Observable<Lesson[]>;
   suscripcion!: Subscription;
+  session$!: Observable<Session>
 
    constructor(
      public lessonsService: LessonService,
@@ -28,6 +29,7 @@ export class LessonsListComponent implements OnInit, OnDestroy {
 
    ngOnInit() {
      this.lessonsList$ = this.lessonsService.getLessonsObservable();
+     this.session$ = this.session.getSession()
      /*
      this.session.getSession().subscribe((session: Session) => {
       console.log('sessao lesson', session);
