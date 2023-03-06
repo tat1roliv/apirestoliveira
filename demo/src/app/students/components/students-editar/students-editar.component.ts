@@ -25,7 +25,7 @@ export class StudentsEditarComponent implements OnInit{
       console.log(parametros);
 
       this.formStudents = new FormGroup({
-        id_: new FormControl(parametros.get('id_'|| '')),
+        id: new FormControl(parametros.get('id'|| '')),
         name: new FormControl(parametros.get('name' || '')),
         lastName: new FormControl(parametros.get('lastName'|| '')),
         email: new FormControl(parametros.get('email'|| '')),
@@ -37,7 +37,7 @@ export class StudentsEditarComponent implements OnInit{
 
   studentsEdit(){
     let student: Student = {
-      id_: this.formStudents.value.id_,
+      id: this.formStudents.value.id,
       name: this.formStudents.value.name,
       lastName: this.formStudents.value.lastName,
       email: this.formStudents.value.email,

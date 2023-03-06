@@ -25,8 +25,8 @@ export class StudentsService {
 
   }
 
-  removeStudent(student: Student): void {
-
+  removeStudent(student: Student): Observable<Student> {
+    return this.http.delete<Student>(`${env.apiURL}/students/${student.id}`)
   }
 
 

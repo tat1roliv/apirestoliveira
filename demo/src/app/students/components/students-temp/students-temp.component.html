@@ -4,7 +4,7 @@
   <li *ngFor="let student of studentsTemp$ | async" class="card card-edit mb-2 bg-light ">
     <div class="row d-flex justify-content-center align-items-center p-4 ">
       <div class="col-12 px-0">
-        <p class="card-text"><strong>Id:</strong> {{ student.id_ }} </p>
+        <p class="card-text"><strong>Id:</strong> {{ student.id }} </p>
         <p class="card-text"><strong>Name:</strong> {{ student | studentName }} </p> <!--| studentName -->
         <p class="card-text"><strong>E-mail:</strong> {{ student.email }} </p>
         <p class="card-text"><strong>Course:</strong> {{ student.course }} </p>
