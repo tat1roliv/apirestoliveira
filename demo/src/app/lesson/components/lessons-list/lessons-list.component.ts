@@ -28,12 +28,14 @@ export class LessonsListComponent implements OnInit, OnDestroy {
 
    ngOnInit() {
      this.lessonsList$ = this.lessonsService.getLessonsObservable();
+     /*
      this.session.getSession().subscribe((session: Session) => {
       console.log('sessao lesson', session);
       if(!session.sessionActive){
         this.router.navigate(['/auth/login']);
       }
     })
+    */
    }
 
    removeLesson(lesson: Lesson): void {

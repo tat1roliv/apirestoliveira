@@ -27,12 +27,16 @@ export class CoursesListComponent implements OnInit, OnDestroy {
 
    ngOnInit() {
      this.coursesList$ = this.coursesService.getCoursesObservable();
+
+     /*
      this.session.getSession().subscribe((session: Session) => {
       console.log('sessao course', session);
       if(!session.sessionActive){
         this.router.navigate(['/auth/login']);
       }
-    })
+      })
+    */
+
    }
 
    removeCourse(course: Course): void {
