@@ -1,19 +1,20 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Student } from 'src/app/models/student';
+import { env } from 'src/environment/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StudentsService {
-/*
-  constructor() {
 
-  }
-
+  constructor(
+    private http: HttpClient
+  ){ }
 
   getStudentsObservable(): Observable<Student[]>{
-
+    return this.http.get<Student[]>(`${env.apiURL}/students`)
   }
 
   addStudent(student: Student): void{
@@ -27,8 +28,9 @@ export class StudentsService {
   removeStudent(student: Student): void {
 
   }
-*/
 
+
+/*
   public students: Student[] = [
   {
     id_: '1',
@@ -103,7 +105,7 @@ export class StudentsService {
     }
   }
 
-
+*/
 
 }
 
