@@ -9,31 +9,31 @@ export class LessonService {
 
   public lessons: Lesson[] = [
     {
-      id_:'1',
+      id:'1',
       title: 'class number',
       lessonNumber: '1',
       course: 'angular',
     },
     {
-      id_: '2',
+      id: '2',
       title: 'class number',
       lessonNumber: '1',
       course: 'C',
     },
     {
-      id_: '3',
+      id: '3',
       title: 'class number',
       lessonNumber: '1',
       course: 'Java',
     },
     {
-      id_: '4',
+      id: '4',
       title: 'class number',
       lessonNumber: '1',
       course: 'React',
     },
     {
-      id_: '5',
+      id: '5',
       title: 'class number',
       lessonNumber: '1',
       course: 'Cobol',
@@ -62,7 +62,7 @@ export class LessonService {
   }
 
   editServLesson(lesson: Lesson): void {
-    let indice = this.lessons.findIndex((le: Lesson) => le.id_ === lesson.id_);
+    let indice = this.lessons.findIndex((le: Lesson) => le.id === lesson.id);
 
     if(indice > -1){
       this.lessons[indice] = lesson;
@@ -71,7 +71,7 @@ export class LessonService {
   }
 
   removeStudent(lesson: Lesson): void {
-    let indice = this.lessons.findIndex((l: Lesson) => l.id_ === lesson.id_);
+    let indice = this.lessons.findIndex((l: Lesson) => l.id === lesson.id);
 
     if(indice > -1){
       this.lessons.splice(indice, 1);

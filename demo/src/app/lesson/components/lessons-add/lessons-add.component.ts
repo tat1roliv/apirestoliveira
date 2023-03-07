@@ -24,7 +24,7 @@ export class LessonsAddComponent implements OnInit{
       console.log(parametros);
 
       this.formLessons = new FormGroup({
-        id_: new FormControl(),
+        id: new FormControl(),
         title: new FormControl(),
         lessonNumber: new FormControl(),
         course: new FormControl(),
@@ -36,7 +36,7 @@ export class LessonsAddComponent implements OnInit{
 
   lessonsAdd(){
     let lesson: Lesson = {
-      id_: this.formLessons.value.id_,
+      id: this.formLessons.value.id,
       title: this.formLessons.value.title,
       lessonNumber: this.formLessons.value.lessonNumber,
       course: this.formLessons.value.course
