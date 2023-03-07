@@ -24,7 +24,7 @@ export class CoursesEditComponent implements OnInit{
       console.log(parametros);
 
       this.formCourses = new FormGroup({
-        id_: new FormControl(parametros.get('id_'|| '')),
+        id: new FormControl(parametros.get('id'|| '')),
         courseName: new FormControl(parametros.get('courseName' || '')),
 
       })
@@ -34,7 +34,7 @@ export class CoursesEditComponent implements OnInit{
 
   coursesEdit(){
     let course: Course = {
-      id_: this.formCourses.value.id_,
+      id: this.formCourses.value.id,
       courseName: this.formCourses.value.courseName,
 
     }

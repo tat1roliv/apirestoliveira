@@ -24,7 +24,7 @@ export class CoursesAddComponent  implements OnInit{
       console.log(parametros);
 
       this.formCourses = new FormGroup({
-        id_: new FormControl(),
+        id: new FormControl(),
         courseName: new FormControl(),
 
       })
@@ -34,12 +34,12 @@ export class CoursesAddComponent  implements OnInit{
 
   coursesAdd(){
     let course: Course = {
-      id_: this.formCourses.value.id_,
+      id: this.formCourses.value.id,
       courseName: this.formCourses.value.courseName,
 
     }
 
-    this.coursesService.addStudent(course);
+    this.coursesService.addCourse(course);
     this.router.navigate(['courses/list']);
   }
 

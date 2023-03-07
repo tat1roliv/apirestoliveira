@@ -41,7 +41,7 @@ export class CoursesListComponent implements OnInit, OnDestroy {
    }
 
    removeCourse(course: Course): void {
-     this.coursesService.removeStudent(course);
+     this.coursesService.removeCourse(course);
    }
 
    editCourseRedirect(course: Course){
