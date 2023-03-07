@@ -41,7 +41,10 @@ export class CoursesListComponent implements OnInit, OnDestroy {
    }
 
    removeCourse(course: Course): void {
-     this.coursesService.removeCourse(course);
+     this.coursesService.removeCourse(course).subscribe((course: Course) => {
+      alert(`course ${course.courseName}  deleted` );
+      this.coursesList$ = this.coursesService.getCoursesObservable();
+     })
    }
 
    editCourseRedirect(course: Course){

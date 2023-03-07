@@ -2,10 +2,12 @@
 
 <form [formGroup]="formStudents" (ngSubmit)="studentsAdd()">
 
-    <div class="mb-2">
-        <label class="mb-1" for="disabledTextInput">Id: </label>
-        <input value="" type="text"  id="disabledTextInput" name="firstname-input" class="form-control" formControlName="id">
-    </div>
+    <fieldset disabled>
+      <div class="mb-2">
+        <label class="mb-1" for="disabledTextInput">Id (not editable): </label>
+        <input value="" type="text"  id="disabledTextInput" name="firstname-input" class="form-control disabled" formControlName="id">
+      </div>
+    </fieldset>
     <div class="mb-2">
       <label class="mb-1" for="name-input">Name:</label>
       <input value="" type="text" id="name-input" name="name-input" class="form-control"  formControlName="name">

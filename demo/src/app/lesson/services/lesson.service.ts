@@ -16,8 +16,8 @@ export class LessonService {
     return this.http.get<Lesson[]>(`${env.apiURL}/lessons`)
   }
 
-  addLesson(lesson: Lesson): void{
-
+  addLesson(lesson: Lesson): Observable<Lesson>{
+    return this.http.post<Lesson>(`${env.apiURL}/lessons`, lesson)
   }
 
   editServLesson(lesson: Lesson): void {

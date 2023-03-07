@@ -24,10 +24,10 @@ export class LessonsAddComponent implements OnInit{
       console.log(parametros);
 
       this.formLessons = new FormGroup({
-        id: new FormControl(),
-        title: new FormControl(),
-        lessonNumber: new FormControl(),
-        course: new FormControl(),
+        id: new FormControl(''),
+        title: new FormControl(''),
+        lessonNumber: new FormControl(''),
+        course: new FormControl(''),
 
       })
     })
@@ -36,14 +36,17 @@ export class LessonsAddComponent implements OnInit{
 
   lessonsAdd(){
     let lesson: Lesson = {
-      id: this.formLessons.value.id,
+      id: '',
       title: this.formLessons.value.title,
       lessonNumber: this.formLessons.value.lessonNumber,
       course: this.formLessons.value.course
     }
 
-    this.lessonsService.addLesson(lesson)
-    this.router.navigate(['lessons/list']);
+    this.lessonsService.addLesson(lesson).subscribe((lesson: Lesson) => {
+      alert(`lesson ${lesson.title} added` );
+      this.router.navigate(['lessons/list']);
+    })
+    
   }
 
 }

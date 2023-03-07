@@ -18,8 +18,8 @@ export class CourseService {
     return this.http.get<Course[]>(`${env.apiURLCourse}/courses`)
   }
 
-  addCourse(course: Course): void{
-
+  addCourse(course: Course): Observable<Course>{
+    return this.http.post<Course>(`${env.apiURLCourse}/courses`, course)
   }
 
   editServCourse(course: Course): void {

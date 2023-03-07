@@ -1,11 +1,12 @@
 <h2>Add Course</h2>
 
 <form [formGroup]="formCourses" (ngSubmit)="coursesAdd()">
-
+  <fieldset disabled>
     <div class="mb-2">
         <label class="mb-1" for="disabledTextInput">Id: </label>
         <input value="" type="text"  id="disabledTextInput" name="id-name" class="form-control" formControlName="id">
     </div>
+  </fieldset>
     <div class="mb-2">
       <label class="mb-1" for="courseName-input">Name:</label>
       <input value="" type="text" id="courseName-input" name="courseName-input" class="form-control"  formControlName="courseName">

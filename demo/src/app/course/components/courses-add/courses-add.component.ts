@@ -24,8 +24,8 @@ export class CoursesAddComponent  implements OnInit{
       console.log(parametros);
 
       this.formCourses = new FormGroup({
-        id: new FormControl(),
-        courseName: new FormControl(),
+        id: new FormControl(''),
+        courseName: new FormControl(''),
 
       })
     })
@@ -34,13 +34,16 @@ export class CoursesAddComponent  implements OnInit{
 
   coursesAdd(){
     let course: Course = {
-      id: this.formCourses.value.id,
+      id: '',
       courseName: this.formCourses.value.courseName,
 
     }
 
-    this.coursesService.addCourse(course);
-    this.router.navigate(['courses/list']);
+    this.coursesService.addCourse(course).subscribe((course: Course) => {
+      alert(`course ${course.courseName} added` );
+      this.router.navigate(['courses/list']);
+    })
+
   }
 
 

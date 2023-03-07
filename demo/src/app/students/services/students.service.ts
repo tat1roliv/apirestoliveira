@@ -17,8 +17,8 @@ export class StudentsService {
     return this.http.get<Student[]>(`${env.apiURL}/students`)
   }
 
-  addStudent(student: Student): void{
-
+  addStudent(student: Student): Observable<Student>{
+    return this.http.post<Student>(`${env.apiURL}/students`, student)
   }
 
   editServStudent(student: Student): void {

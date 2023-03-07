@@ -1,11 +1,12 @@
 <h2>Add Lesson</h2>
 
 <form [formGroup]="formLessons" (ngSubmit)="lessonsAdd()">
-
+  <fieldset disabled>
     <div class="mb-2">
         <label class="mb-1" for="disabledTextInput">Id: </label>
         <input value="" type="text"  id="disabledTextInput" name="id" class="form-control" formControlName="id">
     </div>
+  </fieldset>
     <div class="mb-2">
       <label class="mb-1" for="title-input">Title:</label>
       <input value="" type="text" id="title-input" name="title-input" class="form-control"  formControlName="title">

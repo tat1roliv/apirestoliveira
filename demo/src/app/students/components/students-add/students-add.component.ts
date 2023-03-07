@@ -24,11 +24,11 @@ export class StudentsAddComponent  implements OnInit{
       console.log(parametros);
 
       this.formStudents = new FormGroup({
-        id: new FormControl(),
-        name: new FormControl(),
-        lastName: new FormControl(),
-        email: new FormControl(),
-        course: new FormControl(),
+        id: new FormControl(''),
+        name: new FormControl(''),
+        lastName: new FormControl(''),
+        email: new FormControl(''),
+        course: new FormControl(''),
       })
     })
 
@@ -36,15 +36,19 @@ export class StudentsAddComponent  implements OnInit{
 
   studentsAdd(){
     let student: Student = {
-      id: this.formStudents.value.id,
+      //id: this.formStudents.value.id,
+      id: '',
       name: this.formStudents.value.name,
       lastName: this.formStudents.value.lastName,
       email: this.formStudents.value.email,
       course: this.formStudents.value.course,
     }
 
-    this.studentsService.addStudent(student);
-    this.router.navigate(['students/list']);
+    this.studentsService.addStudent(student).subscribe((student: Student) => {
+      alert(`student ${student.name} ${student.lastName} added` );
+      this.router.navigate(['students/list']);
+    })
+
   }
 
 }
