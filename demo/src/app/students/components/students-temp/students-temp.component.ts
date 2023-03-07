@@ -45,7 +45,10 @@ export class StudentsTempComponent implements OnInit, OnDestroy {
   }
 
   removeStudent(student: Student): void {
-    this.studentsService.removeStudent(student);
+    this.studentsService.removeStudent(student).subscribe((student: Student) =>{
+      alert(`student ${student.name} ${student.lastName} deleted` );
+      this.studentsTemp$ = this.studentsService.getStudentsObservable();
+    })
   }
 
   editStudentRedirect(student: Student){
