@@ -32,17 +32,6 @@ export class CoursesEditComponent implements OnInit{
       courseName: new FormControl(this.course.courseName),
     })
 
-    /*
-    this.activatedRoute.paramMap.subscribe((parametros) => {
-      console.log(parametros);
-
-      this.formCourses = new FormGroup({
-        id: new FormControl(parametros.get('id'|| '')),
-        courseName: new FormControl(parametros.get('courseName' || '')),
-
-      })
-    })
-    */
 
   }
 
@@ -56,7 +45,5 @@ export class CoursesEditComponent implements OnInit{
       this.dialogRef.close(course);
     })
 
-    //this.coursesService.editServCourse(course)
-    //this.router.navigate(['courses/list']);
   }
 }

@@ -36,20 +36,6 @@ export class LessonsEditComponent implements OnInit{
 
     })
 
-
-    /*
-    this.activatedRoute.paramMap.subscribe((parametros) => {
-      console.log(parametros);
-
-      this.formLessons = new FormGroup({
-        id: new FormControl(parametros.get('id_'|| '')),
-        title: new FormControl(parametros.get('title' || '')),
-        lessonNumber: new FormControl(parametros.get('lessonNumber' || '')),
-        course: new FormControl(parametros.get('course' || '')),
-      })
-    })
-    */
-
   }
 
   lessonsEdit(){
@@ -64,9 +50,6 @@ export class LessonsEditComponent implements OnInit{
     this.lessonsService.editServLesson(lesson).subscribe((lesson: Lesson) =>{
       this.dialogRef.close(lesson);
     })
-
-    //this.lessonsService.editServLesson(lesson)
-    //this.router.navigate(['lessons/list']);
   }
 
 }

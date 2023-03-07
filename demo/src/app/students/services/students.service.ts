@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, catchError, Observable, throwError } from 'rxjs';
 import { Student } from 'src/app/models/student';
 import { env } from 'src/environment/environment';
 
@@ -14,98 +14,47 @@ export class StudentsService {
   ){ }
 
   getStudentsObservable(): Observable<Student[]>{
-    return this.http.get<Student[]>(`${env.apiURL}/students`)
+    return this.http.get<Student[]>(`${env.apiURL}/students`, {
+      headers: new HttpHeaders({
+        'content-type': 'application/json',
+        'encoding': 'UTF-8'
+      })
+    }).pipe(
+      catchError(this.getError)
+    )
   }
 
   addStudent(student: Student): Observable<Student>{
-    return this.http.post<Student>(`${env.apiURL}/students`, student)
+    return this.http.post<Student>(`${env.apiURL}/students`, student ,  {
+      headers: new HttpHeaders({
+        'encoding': 'UTF-8'
+      })
+    }).pipe(
+      catchError(this.getError)
+    )
   }
 
   editServStudent(student: Student): Observable<Student>{
-    return this.http.put<Student>(`${env.apiURL}/students/${student.id}`, student)
+    return this.http.put<Student>(`${env.apiURL}/students/${student.id}`, student).pipe(
+      catchError(this.getError)
+    )
   }
 
   removeStudent(student: Student): Observable<Student> {
-    return this.http.delete<Student>(`${env.apiURL}/students/${student.id}`)
+    return this.http.delete<Student>(`${env.apiURL}/students/${student.id}`).pipe(
+      catchError(this.getError)
+    )
   }
 
 
-/*
-  public students: Student[] = [
-  {
-    id_: '1',
-    name: 'Ada',
-    lastName: 'Lovelace',
-    email: 'ada@test.com',
-    course: 'Angular',
-  },
-  {
-    id_: '2',
-    name: 'Alan',
-    lastName: 'Turing',
-    email: 'a.turing@test.com',
-    course: 'C',
-  },
-  {
-    id_: '3',
-    name: 'Robert',
-    lastName: 'Martin',
-    email: 'unclebob@test.com',
-    course: 'Java',
-  },
-  {
-    id_: '4',
-    name: 'Tim',
-    lastName: 'Berners-Lee ',
-    email: 'tim@test.com',
-    course: 'React',
-  },
-  {
-    id_: '5',
-    name: 'Grace',
-    lastName: 'Hopper',
-    email: 'hopper@test.com',
-    course: 'Cobol',
-  },
-];
-
-  public students$!: BehaviorSubject<Student[]>;
-
-  constructor() {
-    //observable/subject
-    this.students$ = new BehaviorSubject<Student[]>(this.students);
-  }
-
-
-  getStudentsObservable(): Observable<Student[]>{
-    return this.students$.asObservable();
-  }
-
-  addStudent(student: Student): void{
-    this.students.push(student);
-    this.students$.next(this.students);
-    console.log('added from service', this.students);
-  }
-
-  editServStudent(student: Student): void {
-    let indice = this.students.findIndex((s: Student) => s.id_ === student.id_);
-
-    if(indice > -1){
-      this.students[indice] = student;
-      this.students$.next(this.students);
+  private getError(error: HttpErrorResponse){
+    if(error.error instanceof ErrorEvent){
+      alert(`Client-side error: ${error.message}`);
+    }else{
+      alert(`Server-side error: ${error.message}`);
     }
+    return throwError(() => new Error('New error'));
   }
-
-  removeStudent(student: Student): void {
-    let indice = this.students.findIndex((s: Student) => s.id_ === student.id_);
-
-    if(indice > -1){
-      this.students.splice(indice, 1);
-      this.students$.next(this.students);
-    }
-  }
-
-*/
 
 }
 

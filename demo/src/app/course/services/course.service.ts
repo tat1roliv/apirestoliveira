@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, catchError, Observable, throwError } from 'rxjs';
 import { env } from 'src/environment/environment';
 import { Course } from 'src/app/models/course';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -15,84 +15,39 @@ export class CourseService {
 
 
   getCoursesObservable(): Observable<Course[]>{
-    return this.http.get<Course[]>(`${env.apiURLCourse}/courses`)
+    return this.http.get<Course[]>(`${env.apiURLCourse}/courses`).pipe(
+      catchError(this.getError)
+    )
   }
 
   addCourse(course: Course): Observable<Course>{
-    return this.http.post<Course>(`${env.apiURLCourse}/courses`, course)
+    return this.http.post<Course>(`${env.apiURLCourse}/courses`, course).pipe(
+      catchError(this.getError)
+    )
   }
 
   editServCourse(course: Course):  Observable<Course>{
-    return this.http.put<Course>(`${env.apiURLCourse}/courses/${course.id}`, course)
+    return this.http.put<Course>(`${env.apiURLCourse}/courses/${course.id}`, course).pipe(
+      catchError(this.getError)
+    )
   }
 
   removeCourse(course: Course):  Observable<Course> {
-    return this.http.delete<Course>(`${env.apiURLCourse}/courses/${course.id}`)
-  }
-  }
-
-  /*
-  public courses: Course[] = [
-
-    {
-      id: '1',
-      courseName: 'Angular',
-    },
-    {
-      id: '2',
-      courseName: 'C',
-    },
-    {
-      id: '3',
-      courseName: 'Java',
-    },
-    {
-      id: '4',
-      courseName: 'React',
-    },
-    {
-      id: '5',
-      courseName: 'Cobol',
-    },
-  ];
-
-
-
-  public courses$!: BehaviorSubject<Course[]>;
-
-  constructor() {
-    //observable/subject
-    this.courses$ = new BehaviorSubject<Course[]>(this.courses);
+    return this.http.delete<Course>(`${env.apiURLCourse}/courses/${course.id}`).pipe(
+      catchError(this.getError)
+    )
   }
 
-
-  getCoursesObservable(): Observable<Course[]>{
-    return this.courses$.asObservable();
-  }
-
-  addStudent(course: Course): void{
-    this.courses.push(course);
-    this.courses$.next(this.courses);
-    console.log('added from service', this.courses);
-  }
-
-  editServCourse(course: Course): void {
-    let indice = this.courses.findIndex((c: Course) => c.id === course.id);
-
-    if(indice > -1){
-      this.courses[indice] = course;
-      this.courses$.next(this.courses);
+  private getError(error: HttpErrorResponse){
+    if(error.error instanceof ErrorEvent){
+      alert(`Client-side error: ${error.message}`);
+    }else{
+      alert(`Server-side error: ${error.message}`);
     }
+    return throwError(() => new Error('New error'));
   }
 
-  removeStudent(course: Course): void {
-    let indice = this.courses.findIndex((c: Course) => c.id === course.id);
-
-    if(indice > -1){
-      this.courses.splice(indice, 1);
-      this.courses$.next(this.courses);
-    }
   }
-*/
+
 
 
