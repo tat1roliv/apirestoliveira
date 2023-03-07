@@ -1,10 +1,12 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { SessionService } from 'src/app/core/services/session.service';
 import { Course } from 'src/app/models/course';
 import { Session } from 'src/app/models/session';
 import { CourseService } from '../../services/course.service';
+import { CoursesEditComponent } from '../courses-edit/courses-edit.component';
 
 @Component({
   selector: 'app-courses-list',
@@ -23,6 +25,7 @@ export class CoursesListComponent implements OnInit, OnDestroy {
      public coursesService: CourseService,
      private router: Router,
      private session: SessionService,
+     public dialog: MatDialog,
      ) {
    }
 
@@ -47,9 +50,19 @@ export class CoursesListComponent implements OnInit, OnDestroy {
      })
    }
 
+  //updated to dialog
    editCourseRedirect(course: Course){
      this.router.navigate(['courses/edit', course])
    }
+
+   openModalDialog(course: Course){
+    this.dialog.open(CoursesEditComponent, {
+      data: course
+    }).afterClosed().subscribe((course: Course) => {
+      alert(`course ${course.courseName} edited`)
+      this.coursesList$ = this.coursesService.getCoursesObservable();
+    })
+  }
 
    ngOnDestroy() {
 

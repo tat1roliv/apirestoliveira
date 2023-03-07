@@ -5,6 +5,8 @@ import { SessionService } from 'src/app/core/services/session.service';
 import { Lesson } from 'src/app/models/lesson';
 import { Session } from 'src/app/models/session';
 import { LessonService } from '../../services/lesson.service';
+import { LessonsEditComponent } from '../lessons-edit/lessons-edit.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-lessons-list',
@@ -23,7 +25,7 @@ export class LessonsListComponent implements OnInit, OnDestroy {
      public lessonsService: LessonService,
      private router: Router,
      private session: SessionService,
-
+     public dialog: MatDialog,
      ) {
    }
 
@@ -47,9 +49,19 @@ export class LessonsListComponent implements OnInit, OnDestroy {
      })
    }
 
+  //updated to dialog
    editLessonRedirect(lesson: Lesson){
      this.router.navigate(['lessons/edit', lesson])
    }
+
+   openModalDialog(lesson: Lesson){
+    this.dialog.open(LessonsEditComponent, {
+      data: lesson
+    }).afterClosed().subscribe((lesson: Lesson) => {
+      alert(`lesson ${lesson.title} edited`)
+      this.lessonsList$ = this.lessonsService.getLessonsObservable();
+    })
+  }
 
    ngOnDestroy() {
 

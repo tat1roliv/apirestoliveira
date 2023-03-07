@@ -21,8 +21,8 @@ export class StudentsService {
     return this.http.post<Student>(`${env.apiURL}/students`, student)
   }
 
-  editServStudent(student: Student): void {
-
+  editServStudent(student: Student): Observable<Student>{
+    return this.http.put<Student>(`${env.apiURL}/students/${student.id}`, student)
   }
 
   removeStudent(student: Student): Observable<Student> {

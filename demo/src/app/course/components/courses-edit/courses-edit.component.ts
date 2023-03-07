@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Inject} from '@angular/core';
 import { FormControl, FormGroup , Validators} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Course } from 'src/app/models/course';
 import { CourseService } from '../../services/course.service';
+import { Observable } from 'rxjs';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-courses-edit',
@@ -12,14 +14,25 @@ import { CourseService } from '../../services/course.service';
 export class CoursesEditComponent implements OnInit{
 
   formCourses!: FormGroup;
+  coursesList$!: Observable<Course[]>;
 
   constructor(
-    public activatedRoute: ActivatedRoute,
+    //public activatedRoute: ActivatedRoute,
     private coursesService: CourseService,
-    private router: Router
+    private router: Router,
+    private dialogRef: MatDialogRef<CoursesEditComponent>,
+    @Inject(MAT_DIALOG_DATA) public course: Course
   ){}
 
   ngOnInit(): void {
+
+    this.coursesList$ = this.coursesService.getCoursesObservable();
+    this.formCourses= new FormGroup({
+      id: new FormControl(this.course.id),
+      courseName: new FormControl(this.course.courseName),
+    })
+
+    /*
     this.activatedRoute.paramMap.subscribe((parametros) => {
       console.log(parametros);
 
@@ -29,6 +42,7 @@ export class CoursesEditComponent implements OnInit{
 
       })
     })
+    */
 
   }
 
@@ -36,10 +50,13 @@ export class CoursesEditComponent implements OnInit{
     let course: Course = {
       id: this.formCourses.value.id,
       courseName: this.formCourses.value.courseName,
-
     }
 
-    this.coursesService.editServCourse(course)
-    this.router.navigate(['courses/list']);
+    this.coursesService.editServCourse(course).subscribe((course: Course) =>{
+      this.dialogRef.close(course);
+    })
+
+    //this.coursesService.editServCourse(course)
+    //this.router.navigate(['courses/list']);
   }
 }

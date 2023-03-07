@@ -22,8 +22,8 @@ export class CourseService {
     return this.http.post<Course>(`${env.apiURLCourse}/courses`, course)
   }
 
-  editServCourse(course: Course): void {
-
+  editServCourse(course: Course):  Observable<Course>{
+    return this.http.put<Course>(`${env.apiURLCourse}/courses/${course.id}`, course)
   }
 
   removeCourse(course: Course):  Observable<Course> {

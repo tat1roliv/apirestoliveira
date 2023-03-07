@@ -1,20 +1,27 @@
-<h2 >Edit Course</h2>
+<div class="container p-5">
 
-<form [formGroup]="formCourses" (ngSubmit)="coursesEdit()">
-  <fieldset disabled>
-    <div class="mb-2">
-        <label class="mb-1" for="disabledTextInput">Id (not editable): </label>
-        <input value="" type="text"  id="disabledTextInput" name="id-input" class="form-control" formControlName="id">
-    </div>
-  </fieldset>
-    <div class="mb-2">
-      <label class="mb-1" for="courseName-input">Course Name:</label>
-      <input value="" type="text" id="courseName-input" name="courseName-input" class="form-control"  formControlName="courseName">
-    </div>
+  <h2 >Edit Course</h2>
+
+  <div class="row" mat-dialog-content>
+    <form [formGroup]="formCourses" ><!-- (ngSubmit)="coursesEdit()" -->
+      <fieldset disabled>
+        <div class="mb-2">
+            <label class="mb-1" for="disabledTextInput">Id (not editable): </label>
+            <input value="" type="text"  id="disabledTextInput" name="id-input" class="form-control" formControlName="id">
+        </div>
+      </fieldset>
+        <div class="mb-2">
+          <label class="mb-1" for="courseName-input">Course Name:</label>
+          <input value="" type="text" id="courseName-input" name="courseName-input" class="form-control"  formControlName="courseName">
+        </div>
+
+        <!--div class="mt-4 mb-2">
+            <button type="submit" class="btn btn-primary px-5">Save</button>
+        </!--div-->
+    </form>
 
     <div class="mt-4 mb-2">
-        <button type="submit" class="btn btn-primary px-5">Save</button>
+      <button type="submit" class="btn btn-primary px-5" (click)="coursesEdit()">Save</button>
     </div>
-
-</form>
-
+  </div>
+</div>

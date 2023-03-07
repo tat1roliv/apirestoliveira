@@ -20,8 +20,8 @@ export class LessonService {
     return this.http.post<Lesson>(`${env.apiURL}/lessons`, lesson)
   }
 
-  editServLesson(lesson: Lesson): void {
-
+  editServLesson(lesson: Lesson): Observable<Lesson> {
+    return this.http.put<Lesson>(`${env.apiURL}/lessons/${lesson.id}`, lesson)
   }
 
 
