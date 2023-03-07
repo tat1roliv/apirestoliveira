@@ -1,12 +1,35 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Lesson } from 'src/app/models/lesson';
+import { env } from 'src/environment/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LessonService {
+  constructor(
+    private http: HttpClient
+  ){ }
 
+  getLessonsObservable(): Observable<Lesson[]>{
+    return this.http.get<Lesson[]>(`${env.apiURL}/lessons`)
+  }
+
+  addLesson(lesson: Lesson): void{
+
+  }
+
+  editServLesson(lesson: Lesson): void {
+
+  }
+
+
+  removeLesson(lesson: Lesson): Observable<Lesson> {
+    return this.http.delete<Lesson>(`${env.apiURL}/lessons/${lesson.id}`)
+    }
+
+  /*
   public lessons: Lesson[] = [
     {
       id:'1',
@@ -78,4 +101,5 @@ export class LessonService {
       this.lessons$.next(this.lessons);
     }
   }
+  */
 }

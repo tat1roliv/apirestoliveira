@@ -32,7 +32,7 @@ export class StudentsTempComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.studentsTemp$ = this.studentsService. getStudentsObservable();
+    this.studentsTemp$ = this.studentsService.getStudentsObservable();
     this.session$ = this.session.getSession()
     /*
     this.session.getSession().subscribe((session: Session) => {

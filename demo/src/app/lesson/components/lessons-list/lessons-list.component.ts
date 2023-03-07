@@ -41,7 +41,10 @@ export class LessonsListComponent implements OnInit, OnDestroy {
    }
 
    removeLesson(lesson: Lesson): void {
-     this.lessonsService.removeStudent(lesson);
+     this.lessonsService.removeLesson(lesson).subscribe((lesson: Lesson) => {
+      alert(`lesson ${lesson.title}  deleted` );
+      this.lessonsList$ = this.lessonsService.getLessonsObservable();
+     })
    }
 
    editLessonRedirect(lesson: Lesson){
